@@ -1,5 +1,9 @@
+import { usePage } from '@inertiajs/react';
+
 export default function Home({ response }) {
-  console.log(response);
+  const { auth } = usePage().props;
+
+  console.log(auth);
 
   return (
     <>

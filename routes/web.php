@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TestController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +15,7 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/', [TestController::class, 'show'])->name('home');
+Route::get('/', [HomeController::class, 'show'])->name('home');
+Route::get('/login', [AuthController::class, 'loginView'])->name('login.view');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');

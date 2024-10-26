@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class TestController extends Controller
+class HomeController extends Controller
 {
     public function show()
     {
@@ -16,7 +16,7 @@ class TestController extends Controller
                     'status' => 200,
                     'message' => 'Success',
                     'data' => [
-                        'name' => 'John Doe'
+                        'user' => auth()->user()
                     ]
                 ]
             ]
