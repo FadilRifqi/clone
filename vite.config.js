@@ -18,7 +18,7 @@ export default defineConfig({
   build: {
     minify: 'terser',
     sourcemap: false,
-    manifest: true,
+    manifest: 'manifest.json',
     rollupOptions: {
       output: {
         assetFileNames: `assets/[hash].[ext]`,
