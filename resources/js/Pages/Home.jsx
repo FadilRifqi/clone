@@ -1,11 +1,10 @@
-import React from "react";
+export default function Home({ response }) {
+  console.log(response);
 
-const Home = () => {
-    return (
-        <div>
-            <h1>Hello, world!</h1>
-        </div>
-    );
-};
-
-export default Home;
+  return (
+    <>
+      <h1>Welcome</h1>
+      <p>Hello welcome to your first Inertia app!</p>
+    </>
+  );
+}

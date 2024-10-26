@@ -14,4 +14,4 @@ use App\Http\Controllers\TestController;
 |
 */
 
-Route::get('/', TestController::class, 'show');
+Route::get('/', [TestController::class, 'show'])->name('home');
