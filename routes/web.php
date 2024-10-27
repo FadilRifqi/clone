@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +12,8 @@ use App\Http\Controllers\HomeController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+//add auth middleware to the home route
 
-Route::get('/', [HomeController::class, 'show'])->name('home');
-Route::get('/login', [AuthController::class, 'loginView'])->name('login.view');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
+
+
+require __DIR__ . '/ui.php';

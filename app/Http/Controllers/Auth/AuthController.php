@@ -21,13 +21,7 @@ class AuthController extends Controller
         if (auth()->attempt($credentials)) {
             $request->session()->regenerate();
 
-            return response()->json([
-                'response' => [
-                    'status' => 200,
-                    'message' => 'Success',
-                    'data' => auth()->user()
-                ]
-            ]);
+            return redirect()->route('home');
         }
 
         return response()->json([

@@ -1,77 +1,58 @@
-// resources/js/Pages/Login.jsx
-import { useState } from 'react';
-import { Inertia } from '@inertiajs/inertia';
+import Footer from '../../Components/Footer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle, faApple } from '@fortawesome/free-brands-svg-icons';
 
 export default function Login({ response }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState({});
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    Inertia.post(
-      '/login',
-      { email, password },
-      {
-        onError: (error) => {
-          setErrors(error);
-        },
-      }
-    );
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-6">Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="email"
+    <>
+      <main className="flex justify-center items-center min-h-[95vh]">
+        <div className="container mx-auto p-4 flex flex-col md:flex-row items-center justify-center">
+          <div className="w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+              className="w-16 h-16 md:w-[400px] md:h-[400px] fill-current"
             >
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            />
-            {errors.email && (
-              <p className="text-red-500 text-xs mt-2">{errors.email}</p>
-            )}
+              <g>
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+              </g>
+            </svg>
           </div>
-          <div className="mb-6">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="password"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            />
-            {errors.password && (
-              <p className="text-red-500 text-xs mt-2">{errors.password}</p>
-            )}
-          </div>
-          <div className="flex items-center justify-between">
-            <button
-              type="submit"
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            >
-              Login
+          <div className="w-full md:w-1/2 flex flex-col justify-center ">
+            <p className="text-[4rem] font-bold">Sedang trend saat ini</p>
+            <p className="text-[2rem] font-bold">Bergabunglah sekarang</p>
+            <button className="bg-gray-800 text-white w-2/5 py-2 px-4 rounded-full mb-2 hover:bg-gray-600">
+              Daftar dengan Google{' '}
+              <FontAwesomeIcon icon={faGoogle} className="" />
+            </button>
+            <button className="bg-gray-800 text-white w-2/5 py-2 px-4 rounded-full mb-2 hover:bg-gray-600">
+              <FontAwesomeIcon icon={faApple} className="" /> Daftar dengan
+              Apple
+            </button>
+            <p className="mb-2">
+              <div class="flex items-center space-x-5">
+                <div class="border-t border-gray-500 w-28"></div>
+                <div class="">atau</div>
+                <div class="border-t border-gray-500 w-28"></div>
+              </div>
+            </p>
+            <button className="bg-blue-500 text-white w-2/5 py-2 px-4 rounded-full mb-2 hover:bg-blue-600">
+              Buat Akun
+            </button>
+            <div className="w-5/12 mb-16">
+              <p className="text-[0.7rem] leading-3">
+                Dengan mendaftar Anda menyetujui Persyaratan Layanan dan
+                Kebijakan Privasi, termasuk Penggunaan Kuki.
+              </p>
+            </div>
+            <p className="font-medium text-[1rem] mb-4">Sudah punya akun?</p>
+            <button className="w-2/5 py-2 px-4 rounded-full mb-2 border-2 border-gray-700     bg-white">
+              Masuk
             </button>
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
